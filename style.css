@@ -1,0 +1,310 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* FONDO Y ESTILO GENERAL */
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Asegurar que las secciones puedan "scroll" en pantallas pequeñas */
+  section {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  header {
+    background-color: #333;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  /* SECCIÓN CARPETAS */
+  #foldersSection {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .new-folder {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .new-folder-input {
+    width: 80%;
+    padding: 0.3rem;
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  /* CONTENEDOR DE CARPETAS */
+  .folder-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* CADA CARPETA */
+  .folder {
+    width: 140px;
+    min-height: 80px;
+    background-color: #3a3a3a;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 1rem;
+    cursor: move; /* arrastrable */
+    position: relative;
+  }
+  .folder-icon {
+    width: 45px;
+    height: 32px;
+    margin: 0 auto;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23cccccc" xmlns="http://www.w3.org/2000/svg" width="40" height="32" viewBox="0 0 512 512"><path d="M64 128l0-16c0-26.4 21.6-48 48-48l83.2 0 27.2 27.2 12.8 12.8 176 0c26.4 0 48 21.6 48 48l0 16 0 224c0 26.4-21.6 48-48 48l-304 0c-26.4 0-48-21.6-48-48l0-224z"/></svg>') no-repeat center / contain;
+  }
+  .folder-name {
+    text-align: center;
+    margin-top: 0.5rem;
+    word-wrap: break-word;
+  }
+  
+  /* OPCIONES DE CARPETA */
+  .folder-options {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    display: flex;
+    gap: 0.3rem;
+  }
+  .folder-options button {
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+    border-radius: 4px;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  .folder-options button:hover {
+    background-color: #666;
+  }
+  
+  /* SECCIÓN TAREAS */
+  #tasksSection {
+    flex: 1;
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  #tasksTitle {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  .new-task {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  #newTaskInput {
+    width: 80%;
+    padding: 0.3rem;
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  /* LISTADO DE TAREAS */
+  .tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* CADA TAREA */
+  .task {
+    background-color: #3a3a3a;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: move;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  /* ENCABEZADO DE LA TAREA */
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .task-name-text {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  .task-buttons {
+    display: flex;
+    gap: 0.3rem;
+  }
+  .task-buttons button {
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+    border-radius: 4px;
+    width: 1.8rem;
+    height: 1.8rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  .task-buttons button:hover {
+    background-color: #666;
+  }
+  
+  /* PASOS */
+  .task-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-left: 1rem;
+  }
+  .new-step-container {
+    display: flex;
+    gap: 0.3rem;
+  }
+  .new-step-input {
+    flex: 1;
+    padding: 0.3rem;
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+    border-radius: 4px;
+  }
+  .step-item {
+    background-color: #2f2f2f;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move; /* arrastrable para reordenar */
+  }
+  .step-text {
+    flex: 1;
+    margin-right: 0.5rem;
+  }
+  .step-buttons {
+    display: flex;
+    gap: 0.3rem;
+  }
+  .step-buttons button {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.7rem;
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .step-buttons button:hover {
+    background-color: #666;
+  }
+  
+  /* PRESENTACIÓN */
+  .presentation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000da;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: #fff;
+    text-align: center;
+  }
+  .presentation-content {
+    width: 90%;
+    max-width: 600px;
+    padding: 1rem;
+  }
+  .presentation-step {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #222;
+    border-radius: 6px;
+  }
+  .presentation-controls {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+  }
+  .timer {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffdb4d;
+  }
+  
+  /* SECCIÓN RECOMPENSA */
+  #rewardSection {
+    flex: 1;
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  .reward-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  #rewardInput {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+  }
+  

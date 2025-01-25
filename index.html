@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestor de Tareas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SECCIÓN DE CARPETAS -->
+  <section id="foldersSection">
+    <header>
+      <h1>Gestor de Tareas</h1>
+    </header>
+
+    <!-- Input para crear carpeta con Enter -->
+    <div class="new-folder">
+      <input
+        type="text"
+        id="newFolderInput"
+        class="new-folder-input"
+        placeholder="Nueva carpeta (Enter)..."
+      />
+    </div>
+
+    <!-- Contenedor de carpetas -->
+    <div class="folder-container" id="folderContainer">
+      <!-- Carpetas reordenables -->
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE TAREAS -->
+  <section id="tasksSection" style="display: none;">
+    <header>
+      <!-- SIN botón de regresar manual, confía en el del navegador/dispositivo -->
+      <h2 id="tasksTitle">Carpeta</h2>
+    </header>
+
+    <div class="tasks-container">
+      <!-- Input para crear tarea con Enter -->
+      <div class="new-task">
+        <input
+          type="text"
+          id="newTaskInput"
+          placeholder="Nueva tarea (Enter)..."
+        />
+      </div>
+
+      <!-- Listado de tareas -->
+      <div id="tasksList" class="tasks-list">
+        <!-- Tareas reordenables y pasos -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE PRESENTACIÓN (PANTALLA COMPLETA) -->
+  <div class="presentation-modal" id="presentationModal">
+    <div class="presentation-content">
+      <h2>Presentación de Pasos</h2>
+      <div class="presentation-step" id="presentationStep"></div>
+      <div class="timer" id="timerDisplay">00:00</div>
+      <div class="presentation-controls">
+        <button id="prevStepBtn">◀</button>
+        <button id="nextStepBtn">▶</button>
+        <button id="exitPresentationBtn">✖</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN PARA ESCRIBIR LA RECOMPENSA (se muestra al pulsar "Check") -->
+  <section id="rewardSection" style="display: none;">
+    <header>
+      <!-- Tampoco botón “Regresar” aquí, confiamos en “Atrás” del navegador -->
+      <h2>Registrar Recompensa</h2>
+    </header>
+    <div class="reward-container">
+      <input
+        type="text"
+        id="rewardInput"
+        placeholder="Describe tu recompensa (Enter)..."
+      />
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
